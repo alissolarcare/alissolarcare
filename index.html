@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth scroll-pt-24">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali's Solar Care | Maximize Your Solar Efficiency</title>
+    <meta name="description" content="Professional solar panel cleaning services in Karachi, Pakistan. Maximize your solar efficiency with Ali's Solar Care.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS CSS for Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            darkblue: '#002855',
+                            lightblue: '#0085CA',
+                            yellow: '#FFC72C',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        :root {
+            --ease-natural: cubic-bezier(0.25, 1, 0.5, 1);
+            --anim-fast: 300ms;
+            --anim-med: 500ms;
+            --anim-slow: 700ms;
+        }
+
+        .glass-nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            transition: transform var(--anim-med) var(--ease-natural), background-color var(--anim-med) ease;
+        }
+
+        details > summary {
+            list-style: none;
+            cursor: pointer;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        /* Loader */
+        .loader {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #0085CA;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Professional Animation System Styles */
+        .animate-fade-right { animation: fadeRight var(--anim-slow) var(--ease-natural) forwards; }
+        .animate-fade-left { animation: fadeLeft var(--anim-slow) var(--ease-natural) forwards; }
+
+        @keyframes fadeRight {
+            from { opacity: 0; transform: translateX(-15px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fadeLeft {
+            from { opacity: 0; transform: translateX(15px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Navigation Underline Hover */
+        .nav-link-hover {
+            position: relative;
+        }
+        .nav-link-hover::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #0085CA;
+            transition: width var(--anim-fast) var(--ease-natural);
+        }
+        .nav-link-hover:hover::after {
+            width: 100%;
+        }
+
+        /* Hover Lift System (300-700ms natural easing) */
+        .hover-lift {
+            transition: transform var(--anim-fast) var(--ease-natural), 
+                        box-shadow var(--anim-fast) var(--ease-natural),
+                        background-color var(--anim-fast) var(--ease-natural);
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px -5px rgba(0, 40, 85, 0.1), 0 8px 10px -6px rgba(0, 40, 85, 0.05);
+        }
+
+        /* Image Subtle Zoom */
+        .img-zoom-hover {
+            transition: transform var(--anim-slow) var(--ease-natural);
+        }
+        .img-zoom-hover:hover {
+            transform: scale(1.03);
+        }
+
+        /* View Transition Animations */
+        .view-transition {
+            animation: fadeInView var(--anim-med) var(--ease-natural) forwards;
+        }
+        @keyframes fadeInView {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Slow Hero Background Zoom */
+        .hero-bg-zoom {
+            animation: slowZoom 25s linear infinite alternate;
+            transform-origin: center;
+        }
+        @keyframes slowZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.08); }
+        }
+
+        /* Occasional Subtle WhatsApp Pulse */
+        .pulse-occasional {
+            animation: subtlePulse 5s infinite;
+        }
+        @keyframes subtlePulse {
+            0%, 85%, 100% { transform: scale(1); box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); }
+            92% { transform: scale(1.06); box-shadow: 0 0 18px rgba(37, 211, 102, 0.6); }
+        }
+
+        /* Accordion smooth expansion */
+        details[open] summary ~ * {
+            animation: fadeInView 0.3s ease-out forwards;
+        }
+
+        /* Accessibility: Respect Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .hero-bg-zoom { animation: none !important; transform: scale(1) !important; }
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased selection:bg-brand-yellow selection:text-brand-darkblue bg-gray-50">
+
+    <!-- GLOBAL STICKY HEADER -->
+    <header class="fixed w-full z-50 glass-nav shadow-sm top-0 transition-transform duration-300 py-4" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="nav-link-home flex items-center gap-3">
+                        <img class="h-14 w-auto object-contain animate-fade-right" src="logo transparent.png" alt="Ali's Solar Care Logo">
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 items-center animate-fade-left">
+                    <a href="#" data-target="home-page" class="nav-link-home text-brand-darkblue font-semibold hover:text-brand-lightblue transition-colors nav-link-hover">Home</a>
+                    <a href="#" data-target="services-page" class="nav-link-page text-brand-darkblue font-semibold hover:text-brand-lightblue transition-colors nav-link-hover">Services</a>
+                    <a href="#" data-target="packages-page" class="nav-link-page text-brand-darkblue font-semibold hover:text-brand-lightblue transition-colors nav-link-hover">Packages</a>
+                    <a href="#" data-target="reviews-page" class="nav-link-page text-brand-darkblue font-semibold hover:text-brand-lightblue transition-colors nav-link-hover">Reviews</a>
+                    <a href="#book-now" id="nav-book-now" class="text-brand-darkblue font-semibold hover:text-brand-lightblue transition-colors nav-link-hover">Book Now</a>
+                    <a href="#about-us" id="nav-about-us" class="text-brand-darkblue font-semibold hover:text-brand-lightblue transition-colors nav-link-hover">About Us</a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-brand-darkblue hover:text-brand-lightblue focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-xl">
+            <div class="px-4 pt-3 pb-5 space-y-2">
+                <a href="#" data-target="home-page" class="mobile-nav-link block px-3 py-2 text-brand-darkblue font-medium hover:bg-gray-50 rounded-md">Home</a>
+                <a href="#" data-target="services-page" class="mobile-nav-link block px-3 py-2 text-brand-darkblue font-medium hover:bg-gray-50 rounded-md">Services</a>
+                <a href="#" data-target="packages-page" class="mobile-nav-link block px-3 py-2 text-brand-darkblue font-medium hover:bg-gray-50 rounded-md">Packages</a>
+                <a href="#" data-target="reviews-page" class="mobile-nav-link block px-3 py-2 text-brand-darkblue font-medium hover:bg-gray-50 rounded-md">Reviews</a>
+                <a href="#book-now" class="mobile-nav-link-anchor block px-3 py-2 text-brand-darkblue font-medium hover:bg-gray-50 rounded-md">Book Now</a>
+                <a href="#about-us" class="mobile-nav-link-anchor block px-3 py-2 text-brand-darkblue font-medium hover:bg-gray-50 rounded-md">About Us</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== 1. HOME PAGE ==================== -->
+    <div id="home-page" class="page-container view-transition">
+        <!-- Hero Section -->
+        <section class="relative pt-24 pb-32 lg:pt-36 lg:pb-48 min-h-screen flex items-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2072&auto=format&fit=crop" alt="Solar Panels" class="w-full h-full object-cover hero-bg-zoom">
+                <div class="absolute inset-0 bg-brand-darkblue opacity-80"></div>
+            </div>
+
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+                <div class="max-w-3xl">
+                    <span data-aos="fade-up" class="inline-block py-1 px-3 rounded-full bg-brand-lightblue/20 text-brand-yellow font-semibold text-sm mb-4 border border-brand-yellow/30 uppercase tracking-wider">
+                        Professional Solar Panel Cleaning in Karachi
+                    </span>
+                    <h1 data-aos="fade-up" data-aos-delay="100" class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6">
+                        Maximize Your <br class="hidden md:block"/>
+                        <span class="text-brand-yellow">Solar Efficiency</span>
+                    </h1>
+                    <p data-aos="fade-up" data-aos-delay="200" class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl leading-relaxed">
+                        Dust, smog, and bird droppings can reduce your solar panel energy generation by up to 25%. Protect your investment with Ali's Solar Care.
+                    </p>
+                    <div data-aos="fade-up" data-aos-delay="300" class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <a href="#book-now" class="hero-cta-book bg-brand-yellow hover:bg-yellow-500 text-brand-darkblue px-8 py-4 rounded-full font-bold text-lg shadow-lg hover-lift flex items-center justify-center gap-2 cursor-pointer">
+                            Request a Quote
+                        </a>
+                        <a href="https://wa.me/923228132237" target="_blank" class="bg-transparent border-2 border-[#25D366] hover:bg-[#25D366] text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover-lift flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-xl"></i> WhatsApp Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Statistics Bar -->
+        <section class="py-12 bg-brand-darkblue relative z-20 shadow-inner">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/20">
+                    <div class="py-4" data-aos="fade-up">
+                        <div class="text-4xl md:text-5xl font-extrabold text-brand-yellow mb-2"><span class="stat-counter" data-target="5000">0</span>+</div>
+                        <div class="text-white font-medium text-lg uppercase tracking-wide">Panels Cleaned</div>
+                    </div>
+                    <div class="py-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-4xl md:text-5xl font-extrabold text-brand-yellow mb-2"><span class="stat-counter" data-target="1200">0</span>+</div>
+                        <div class="text-white font-medium text-lg uppercase tracking-wide">Happy Customers</div>
+                    </div>
+                    <div class="py-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-4xl md:text-5xl font-extrabold text-brand-yellow mb-2"><span class="stat-counter" data-target="8">0</span>+</div>
+                        <div class="text-white font-medium text-lg uppercase tracking-wide">Years Experience</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Preview -->
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <h2 class="text-base text-brand-lightblue font-bold tracking-wide uppercase">Our Services</h2>
+                    <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-brand-darkblue sm:text-4xl">
+                        Comprehensive Solar Maintenance
+                    </h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div data-aos="fade-up" data-aos-delay="100" class="bg-white rounded-2xl p-8 shadow-md border-t-4 border-brand-lightblue hover-lift group">
+                        <div class="w-16 h-16 bg-blue-50 text-brand-lightblue rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fa-solid fa-house text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-brand-darkblue mb-3">Residential Cleaning</h4>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Safe, meticulous cleaning for home rooftop systems to restore peak energy generation.</p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="200" class="bg-white rounded-2xl p-8 shadow-md border-t-4 border-brand-yellow hover-lift group">
+                        <div class="w-16 h-16 bg-yellow-50 text-brand-yellow rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fa-solid fa-building text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-brand-darkblue mb-3">Commercial Cleaning</h4>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Large-scale commercial and industrial solar plant maintenance minimizing downtime.</p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="300" class="bg-white rounded-2xl p-8 shadow-md border-t-4 border-brand-darkblue hover-lift group">
+                        <div class="w-16 h-16 bg-gray-50 text-brand-darkblue rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fa-solid fa-magnifying-glass-chart text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-brand-darkblue mb-3">Panel Inspection</h4>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Detailed visual checks for micro-fractures, wiring conditions, and hot spots.</p>
+                    </div>
+                </div>
+
+                <div class="text-center" data-aos="fade-up">
+                    <button data-target="services-page" class="nav-link-page inline-flex items-center gap-2 bg-brand-darkblue hover:bg-brand-lightblue text-white px-8 py-3.5 rounded-full font-bold shadow-md hover-lift cursor-pointer">
+                        View All Services <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Packages Preview -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <h2 class="text-base text-brand-lightblue font-bold tracking-wide uppercase">Flexible Pricing</h2>
+                    <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-brand-darkblue sm:text-4xl">
+                        Our Cleaning Packages
+                    </h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div data-aos="fade-up" data-aos-delay="100" class="bg-gray-50 rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col hover-lift">
+                        <h4 class="text-xl font-extrabold text-brand-darkblue mb-4">ONE-TIME CLEANING</h4>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">Complete panel wash, dust and bird dropping removal with before-and-after video verification.</p>
+                        <button data-target="packages-page" class="nav-link-page text-brand-lightblue font-bold hover:underline flex items-center gap-2 cursor-pointer">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="200" class="bg-brand-darkblue text-white rounded-2xl p-8 shadow-xl border-t-4 border-brand-yellow flex flex-col hover-lift relative scale-105">
+                        <span class="absolute top-0 right-1/2 transform translate-x-1/2 -translate-y-1/2 bg-brand-yellow text-brand-darkblue text-xs font-bold uppercase tracking-wider py-1 px-3 rounded-full shadow">Most Popular</span>
+                        <h4 class="text-xl font-extrabold text-brand-yellow mb-4 mt-2">1 WASH / MONTH</h4>
+                        <p class="text-gray-200 text-sm mb-6 flex-grow">Regular monthly scheduled cleaning, priority support, and consistent peak efficiency generation.</p>
+                        <button data-target="packages-page" class="nav-link-page text-brand-yellow font-bold hover:underline flex items-center gap-2 cursor-pointer">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="300" class="bg-gray-50 rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col hover-lift">
+                        <h4 class="text-xl font-extrabold text-brand-darkblue mb-4">2 WASHES / MONTH</h4>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">Bi-weekly comprehensive cleaning for heavy dust areas, industrial zones, or maximum output requirements.</p>
+                        <button data-target="packages-page" class="nav-link-page text-brand-lightblue font-bold hover:underline flex items-center gap-2 cursor-pointer">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="text-center" data-aos="fade-up">
+                    <button data-target="packages-page" class="nav-link-page inline-flex items-center gap-2 bg-brand-yellow hover:bg-yellow-500 text-brand-darkblue px-8 py-3.5 rounded-full font-bold shadow-md hover-lift cursor-pointer">
+                        View Packages <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <h2 class="text-base text-brand-lightblue font-bold tracking-wide uppercase">How It Works</h2>
+                    <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-brand-darkblue sm:text-4xl">
+                        Our Simple 4-Step Process
+                    </h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+                    <div class="hidden md:block absolute top-12 left-1/8 right-1/8 h-1 bg-gray-200 w-3/4 mx-auto z-0"></div>
+                    
+                    <div class="relative z-10 text-center group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-24 h-24 bg-white border-4 border-brand-lightblue rounded-full flex items-center justify-center mx-auto mb-6 shadow-md group-hover:scale-105 transition-transform duration-300">
+                            <span class="text-3xl font-extrabold text-brand-darkblue">1</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-brand-darkblue mb-2">Book</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed">Fill out our booking form or message us directly via WhatsApp.</p>
+                    </div>
+                    <div class="relative z-10 text-center group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-24 h-24 bg-white border-4 border-brand-yellow rounded-full flex items-center justify-center mx-auto mb-6 shadow-md group-hover:scale-105 transition-transform duration-300">
+                            <span class="text-3xl font-extrabold text-brand-darkblue">2</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-brand-darkblue mb-2">Inspect</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed">Our technicians arrive on-site and safely assess panel conditions.</p>
+                    </div>
+                    <div class="relative z-10 text-center group" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-24 h-24 bg-white border-4 border-brand-lightblue rounded-full flex items-center justify-center mx-auto mb-6 shadow-md group-hover:scale-105 transition-transform duration-300">
+                            <span class="text-3xl font-extrabold text-brand-darkblue">3</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-brand-darkblue mb-2">Clean</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed">Using eco-safe solutions and pure water brushes to restore shine.</p>
+                    </div>
+                    <div class="relative z-10 text-center group" data-aos="fade-up" data-aos-delay="400">
+                        <div class="w-24 h-24 bg-brand-darkblue border-4 border-brand-yellow rounded-full flex items-center justify-center mx-auto mb-6 shadow-md text-white group-hover:scale-105 transition-transform duration-300">
+                            <i class="fa-solid fa-check text-4xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-brand-darkblue mb-2">Shine & Save</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed">Enjoy immediate boosts in energy output and utility savings.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Preview -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <h2 class="text-base text-brand-lightblue font-bold tracking-wide uppercase">Testimonials</h2>
+                    <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-brand-darkblue sm:text-4xl">
+                        What Our Customers Say
+                    </h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div data-aos="fade-up" data-aos-delay="100" class="bg-gray-50 rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col hover-lift">
+                        <div class="flex text-brand-yellow mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 italic mb-6 flex-grow leading-relaxed">"Bohat achi service mili. Panels achi tarah clean kiye aur kaam bhi jaldi complete kar diya. Before aur after video bhi share ki thi."</p>
+                        <h4 class="text-base font-bold text-brand-darkblue">Muhammad Ahmed</h4>
+                        <p class="text-xs text-gray-500 uppercase tracking-wide">Residential Customer, Karachi</p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="200" class="bg-gray-50 rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col hover-lift">
+                        <div class="flex text-brand-yellow mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 italic mb-6 flex-grow leading-relaxed">"The team did a good job cleaning our solar panels. They came on time, worked properly and cleaned everything before leaving."</p>
+                        <h4 class="text-base font-bold text-brand-darkblue">Ahsan Raza</h4>
+                        <p class="text-xs text-gray-500 uppercase tracking-wide">Commercial Customer, Karachi</p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="300" class="bg-gray-50 rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col hover-lift">
+                        <div class="flex text-brand-yellow mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 italic mb-6 flex-grow leading-relaxed">"Panels kaafi dusty thay aur cleaning ke baad difference clearly nazar aa raha tha. Staff cooperative tha."</p>
+                        <h4 class="text-base font-bold text-brand-darkblue">Bilal Khan</h4>
+                        <p class="text-xs text-gray-500 uppercase tracking-wide">Residential Customer, Karachi</p>
+                    </div>
+                </div>
+
+                <div class="text-center" data-aos="fade-up">
+                    <button data-target="reviews-page" class="nav-link-page inline-flex items-center gap-2 bg-brand-darkblue hover:bg-brand-lightblue text-white px-8 py-3.5 rounded-full font-bold shadow-md hover-lift cursor-pointer">
+                        Read All Reviews <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20 bg-gray-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-base text-brand-lightblue font-bold tracking-wide uppercase">Got Questions?</h2>
+                    <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-brand-darkblue sm:text-4xl">
+                        Frequently Asked Questions
+                    </h3>
+                </div>
+
+                <div class="space-y-4" data-aos="fade-up">
+                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 group">
+                        <summary class="font-bold text-lg text-brand-darkblue flex justify-between items-center cursor-pointer">
+                            <span>Why is professional solar panel cleaning important?</span>
+                            <i class="fa-solid fa-chevron-down text-brand-lightblue transition-transform duration-300 group-open:rotate-180"></i>
+                        </summary>
+                        <p class="mt-4 text-gray-600 leading-relaxed">Dust, bird droppings, and urban smog accumulate on panels over time, blocking direct sunlight. Professional cleaning removes this residue, boosting your solar generation efficiency by up to 25%.</p>
+                    </details>
+
+                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 group">
+                        <summary class="font-bold text-lg text-brand-darkblue flex justify-between items-center cursor-pointer">
+                            <span>What is the recommended cleaning frequency?</span>
+                            <i class="fa-solid fa-chevron-down text-brand-lightblue transition-transform duration-300 group-open:rotate-180"></i>
+                        </summary>
+                        <p class="mt-4 text-gray-600 leading-relaxed">In Karachi, due to high dust levels and environmental pollution, we recommend cleaning your solar panels at least once a month. Heavy dust areas or industrial zones benefit greatly from our bi-weekly (twice a month) package.</p>
+                    </details>
+
+                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 group">
+                        <summary class="font-bold text-lg text-brand-darkblue flex justify-between items-center cursor-pointer">
+                            <span>What cleaning methods and water are used?</span>
+                            <i class="fa-solid fa-chevron-down text-brand-lightblue transition-transform duration-300 group-open:rotate-180"></i>
+                        </summary>
+                        <p class="mt-4 text-gray-600 leading-relaxed">We use specialized soft-brush equipment and fresh water rinses tailored explicitly for solar glass. No harsh abrasive chemicals are used, ensuring zero damage to panel seals or glass coatings.</p>
+                    </details>
+
+                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 group">
+                        <summary class="font-bold text-lg text-brand-darkblue flex justify-between items-center cursor-pointer">
+                            <span>Are panels safe during the cleaning process?</span>
+                            <i class="fa-solid fa-chevron-down text-brand-lightblue transition-transform duration-300 group-open:rotate-180"></i>
+                        </summary>
+                        <p class="mt-4 text-gray-600 leading-relaxed">Yes, absolutely. Our technicians are trained in safe roof access and handle residential and commercial arrays with extreme care, ensuring complete equipment safety.</p>
+                    </details>
+
+                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 group">
+                        <summary class="font-bold text-lg text-brand-darkblue flex justify-between items-center cursor-pointer">
+                            <span>How is pricing calculated?</span>
+                            <i class="fa-solid fa-chevron-down text-brand-lightblue transition-transform duration-300 group-open:rotate-180"></i>
+                        </summary>
+                        <p class="mt-4 text-gray-600 leading-relaxed">All package pricing and individual quotes are based strictly on the total number of solar panels installed on your property.</p>
+                    </details>
+
+                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 group">
+                        <summary class="font-bold text-lg text-brand-darkblue flex justify-between items-center cursor-pointer">
+                            <span>Do you provide before-and-after videos?</span>
+                            <i class="fa-solid fa-chevron-down text-brand-lightblue transition-transform duration-300 group-open:rotate-180"></i>
+                        </summary>
+                        <p class="mt-4 text-gray-600 leading-relaxed">Yes! For transparency and customer satisfaction, we share before-and-after cleaning videos with you upon completion of the service.</p>
+                    </details>
+
+                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 group">
+                        <summary class="font-bold text-lg text-brand-darkblue flex justify-between items-center cursor-pointer">
+                            <span>Is roof cleaning or roof water cleaning included?</span>
+                            <i class="fa-solid fa-chevron-down text-brand-lightblue transition-transform duration-300 group-open:rotate-180"></i>
+                        </summary>
+                        <p class="mt-4 text-gray-600 leading-relaxed">Roof Water Cleaning is NOT included in any standard cleaning package. It is available upon request for an additional charge.</p>
+                    </details>
+
+                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 group">
+                        <summary class="font-bold text-lg text-brand-darkblue flex justify-between items-center cursor-pointer">
+                            <span>What areas in Karachi do you service?</span>
+                            <i class="fa-solid fa-chevron-down text-brand-lightblue transition-transform duration-300 group-open:rotate-180"></i>
+                        </summary>
+                        <p class="mt-4 text-gray-600 leading-relaxed">We provide residential and commercial solar panel cleaning services across all major areas in Karachi, Sindh, Pakistan.</p>
+                    </details>
+
+                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 group">
+                        <summary class="font-bold text-lg text-brand-darkblue flex justify-between items-center cursor-pointer">
+                            <span>How do I book or contact you?</span>
+                            <i class="fa-solid fa-chevron-down text-brand-lightblue transition-transform duration-300 group-open:rotate-180"></i>
+                        </summary>
+                        <p class="mt-4 text-gray-600 leading-relaxed">You can easily book through our online Booking form, email us at alissolarcare@gmail.com, or chat directly with us via our floating WhatsApp button (+92 322 8132237).</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section (Book Now Anchor Section) -->
+        <section id="book-now" class="py-20 bg-white border-t border-gray-200 scroll-mt-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    
+                    <div data-aos="fade-right">
+                        <h2 class="text-3xl leading-8 font-extrabold tracking-tight text-brand-darkblue mb-6">
+                            Book Your Cleaning Today
+                        </h2>
+                        <p class="text-gray-600 mb-8 text-lg leading-relaxed">
+                            Ready to boost your solar output? Fill out the form or reach out directly, and our support team will get in touch promptly.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-brand-lightblue/10 rounded-full flex items-center justify-center text-brand-lightblue shrink-0">
+                                    <i class="fa-solid fa-phone text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-brand-darkblue">WhatsApp / Phone</h4>
+                                    <p class="text-gray-600">+92 322 8132237</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-brand-yellow/10 rounded-full flex items-center justify-center text-brand-yellow shrink-0">
+                                    <i class="fa-solid fa-envelope text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-brand-darkblue">Email</h4>
+                                    <p class="text-gray-600">alissolarcare@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center text-brand-darkblue shrink-0">
+                                    <i class="fa-solid fa-location-dot text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-brand-darkblue">Service Area</h4>
+                                    <p class="text-gray-600">Karachi, Sindh, Pakistan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Backend Integrated Form -->
+                    <div class="bg-gray-50 rounded-2xl shadow-xl p-8 border border-gray-100 relative" data-aos="fade-left">
+                        <div id="form-loader" class="hidden absolute inset-0 bg-white/80 backdrop-blur-sm z-10 flex flex-col items-center justify-center rounded-2xl">
+                            <div class="loader mb-4"></div>
+                            <p class="text-brand-darkblue font-semibold">Submitting your request...</p>
+                        </div>
+
+                        <form id="bookingForm" class="space-y-5">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+                                <input type="text" id="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-lightblue outline-none transition-colors bg-white" placeholder="John Doe">
+                            </div>
+                            
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number / WhatsApp *</label>
+                                <input type="tel" id="phone" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-lightblue outline-none transition-colors bg-white" placeholder="+92 3XX XXXXXXX">
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-lightblue outline-none transition-colors bg-white" placeholder="Optional">
+                            </div>
+
+                            <div>
+                                <label for="service" class="block text-sm font-medium text-gray-700 mb-1">Service Needed *</label>
+                                <select id="service" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-lightblue outline-none transition-colors bg-white">
+                                    <option value="Residential Cleaning">Residential Cleaning</option>
+                                    <option value="Commercial Cleaning">Commercial Cleaning</option>
+                                    <option value="Inspection Only">Panel Inspection Only</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Additional Details</label>
+                                <textarea id="message" rows="3" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-lightblue outline-none transition-colors resize-none bg-white" placeholder="Number of panels, location area, etc."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-brand-darkblue hover:bg-blue-900 text-white font-bold py-4 px-8 rounded-lg shadow-md hover-lift text-lg flex items-center justify-center gap-2 cursor-pointer">
+                                <i class="fa-solid fa-paper-plane"></i> Submit Booking Request
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section (FINAL MAIN CONTENT SECTION BEFORE FOOTER WITH ID about-us) -->
+        <section id="about-us" class="py-20 bg-gray-50 border-t border-gray-200 scroll-mt-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right">
+                        <h2 class="text-base text-brand-lightblue font-bold tracking-wide uppercase">About Us</h2>
+                        <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-brand-darkblue sm:text-4xl mb-6">
+                            Dedicated to Optimizing Your Solar Investment
+                        </h3>
+                        <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                            At Ali's Solar Care, we understand that installing solar panels is a significant investment. However, environmental factors like dust, smog, and bird droppings can severely degrade system performance over time.
+                        </p>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                            We use specialized equipment and eco-friendly cleaning solutions specifically designed for solar panels to ensure they are cleaned safely and effectively across Karachi, restoring them to peak operational efficiency.
+                        </p>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="border-l-4 border-brand-yellow pl-4" data-aos="fade-up" data-aos-delay="100">
+                                <h4 class="text-3xl font-bold text-brand-darkblue">100%</h4>
+                                <p class="text-gray-500 font-medium">Customer Satisfaction</p>
+                            </div>
+                            <div class="border-l-4 border-brand-lightblue pl-4" data-aos="fade-up" data-aos-delay="200">
+                                <h4 class="text-3xl font-bold text-brand-darkblue">25%</h4>
+                                <p class="text-gray-500 font-medium">Efficiency Boost Potential</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative" data-aos="fade-left" data-aos-delay="200">
+                        <div class="relative z-10 overflow-hidden rounded-xl shadow-2xl group">
+                            <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?q=80&w=2058&auto=format&fit=crop" alt="Solar Cleaning" class="w-full h-full object-cover img-zoom-hover">
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 w-full h-full bg-brand-yellow rounded-xl z-0 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ==================== 2. SERVICES PAGE ==================== -->
+    <div id="services-page" class="page-container hidden view-transition pb-20">
+        <!-- Hero Section -->
+        <div class="relative w-full h-[40vh] md:h-[50vh] flex items-center justify-center mb-16 mt-20 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2072&auto=format&fit=crop" alt="Services Hero" class="absolute inset-0 w-full h-full object-cover z-0 hero-bg-zoom">
+            <div class="absolute inset-0 bg-brand-darkblue/80 z-10"></div>
+            <div class="relative z-20 text-center px-4 w-full max-w-4xl mx-auto mt-8">
+                <span data-aos="fade-up" class="inline-block py-1 px-3 rounded-full bg-brand-lightblue/20 text-brand-yellow font-semibold text-sm mb-4 border border-brand-yellow/30 uppercase tracking-wider">
+                    Expert Solutions
+                </span>
+                <h1 data-aos="fade-up" data-aos-delay="100" class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6">Our Professional Services</h1>
+                <p data-aos="fade-up" data-aos-delay="200" class="text-xl text-gray-200 font-medium max-w-2xl mx-auto">Comprehensive residential and commercial solar panel cleaning and inspection services in Karachi.</p>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Residential -->
+                <div data-aos="fade-up" data-aos-delay="100" class="bg-white rounded-2xl p-8 shadow-md border-t-4 border-brand-lightblue hover-lift flex flex-col">
+                    <div class="w-16 h-16 bg-blue-50 text-brand-lightblue rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-house text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-darkblue mb-3">Residential Cleaning</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed flex-grow">Safe, meticulous cleaning for home rooftop systems. We ensure maximum power output without risking roof damage or scratching delicate glass.</p>
+                    <a href="#book-now" class="goto-booknow w-full bg-brand-darkblue hover:bg-brand-lightblue text-white font-bold py-3 rounded-lg shadow hover-lift text-center cursor-pointer">Book Residential</a>
+                </div>
+
+                <!-- Commercial -->
+                <div data-aos="fade-up" data-aos-delay="200" class="bg-white rounded-2xl p-8 shadow-md border-t-4 border-brand-yellow hover-lift flex flex-col">
+                    <div class="w-16 h-16 bg-yellow-50 text-brand-yellow rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-building text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-darkblue mb-3">Commercial Cleaning</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed flex-grow">Large-scale commercial buildings and industrial solar arrays. We minimize operational downtime and maximize corporate energy returns.</p>
+                    <a href="#book-now" class="goto-booknow w-full bg-brand-darkblue hover:bg-brand-lightblue text-white font-bold py-3 rounded-lg shadow hover-lift text-center cursor-pointer">Book Commercial</a>
+                </div>
+
+                <!-- Inspection -->
+                <div data-aos="fade-up" data-aos-delay="300" class="bg-white rounded-2xl p-8 shadow-md border-t-4 border-brand-darkblue hover-lift flex flex-col">
+                    <div class="w-16 h-16 bg-gray-50 text-brand-darkblue rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-magnifying-glass-chart text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-darkblue mb-3">Panel Inspection</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed flex-grow">Thorough visual inspection to identify micro-cracks, wiring issues, or hot spots under panels. Early detection prevents costly replacements.</p>
+                    <a href="#book-now" class="goto-booknow w-full bg-brand-darkblue hover:bg-brand-lightblue text-white font-bold py-3 rounded-lg shadow hover-lift text-center cursor-pointer">Book Inspection</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== 3. PACKAGES PAGE ==================== -->
+    <div id="packages-page" class="page-container hidden view-transition pb-20">
+        <!-- Hero Section -->
+        <div class="relative w-full h-[40vh] md:h-[50vh] flex items-center justify-center mb-16 mt-20 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1611365892502-f179b784884c?q=80&w=2069&auto=format&fit=crop" alt="Packages Hero" class="absolute inset-0 w-full h-full object-cover z-0 hero-bg-zoom">
+            <div class="absolute inset-0 bg-brand-darkblue/80 z-10"></div>
+            <div class="relative z-20 text-center px-4 w-full max-w-4xl mx-auto mt-8">
+                <span data-aos="fade-up" class="inline-block py-1 px-3 rounded-full bg-brand-lightblue/20 text-brand-yellow font-semibold text-sm mb-4 border border-brand-yellow/30 uppercase tracking-wider">
+                    Flexible Pricing
+                </span>
+                <h1 data-aos="fade-up" data-aos-delay="100" class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6">Our Cleaning Packages</h1>
+                <p data-aos="fade-up" data-aos-delay="200" class="text-xl text-gray-200 font-medium max-w-2xl mx-auto">Tailored maintenance plans designed to maximize your solar investment and fit your schedule.</p>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <!-- Package 1 -->
+                <div data-aos="fade-up" data-aos-delay="100" class="bg-white rounded-2xl shadow-md border border-gray-100 p-8 flex flex-col hover-lift">
+                    <h3 class="text-xl font-extrabold text-brand-darkblue mb-6 border-b-2 border-brand-lightblue pb-3 inline-block self-start">ONE-TIME CLEANING</h3>
+                    <ul class="space-y-4 mb-8 text-gray-600 text-sm flex-grow">
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-lightblue mt-1"></i> Complete solar panel cleaning</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-lightblue mt-1"></i> Dust & bird dropping removal</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-lightblue mt-1"></i> Fresh-water safe rinse</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-lightblue mt-1"></i> Before & after video shared</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-lightblue mt-1"></i> No long-term commitment</li>
+                    </ul>
+                    <a href="#book-now" class="goto-booknow mt-auto w-full bg-brand-darkblue hover:bg-brand-lightblue text-white font-bold py-3 px-6 rounded-lg shadow hover-lift text-center cursor-pointer">Book Now</a>
+                </div>
+
+                <!-- Package 2 -->
+                <div data-aos="fade-up" data-aos-delay="200" class="bg-brand-darkblue rounded-2xl shadow-xl border-t-4 border-brand-yellow p-8 flex flex-col relative hover-lift scale-100 lg:scale-105 z-10">
+                    <div class="absolute top-0 right-1/2 transform translate-x-1/2 -translate-y-1/2 w-max">
+                        <span class="bg-brand-yellow text-brand-darkblue text-xs font-bold uppercase tracking-wider py-1.5 px-4 rounded-full shadow-md">Most Popular</span>
+                    </div>
+                    <h3 class="text-xl font-extrabold text-brand-yellow mb-6 border-b-2 border-brand-yellow pb-3 inline-block self-start mt-2">1 WASH / MONTH</h3>
+                    <ul class="space-y-4 mb-8 text-gray-200 text-sm flex-grow">
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-yellow mt-1"></i> 1 professional cleaning every month</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-yellow mt-1"></i> Dust & dropping removal</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-yellow mt-1"></i> Fresh-water rinse</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-yellow mt-1"></i> Before & after video each time</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-yellow mt-1"></i> Regular schedule & priority booking</li>
+                    </ul>
+                    <a href="#book-now" class="goto-booknow mt-auto w-full bg-brand-yellow hover:bg-yellow-500 text-brand-darkblue font-bold py-3 px-6 rounded-lg shadow hover-lift text-center cursor-pointer">Choose Plan</a>
+                </div>
+
+                <!-- Package 3 -->
+                <div data-aos="fade-up" data-aos-delay="300" class="bg-white rounded-2xl shadow-md border border-gray-100 p-8 flex flex-col hover-lift">
+                    <h3 class="text-xl font-extrabold text-brand-darkblue mb-6 border-b-2 border-brand-lightblue pb-3 inline-block self-start">2 WASHES / MONTH</h3>
+                    <ul class="space-y-4 mb-8 text-gray-600 text-sm flex-grow">
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-lightblue mt-1"></i> 2 professional cleanings monthly</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-lightblue mt-1"></i> Heavy dust & smog defense</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-lightblue mt-1"></i> Fresh-water rinse</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-lightblue mt-1"></i> Before & after video each time</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-lightblue mt-1"></i> Ideal for industrial/heavy dust</li>
+                    </ul>
+                    <a href="#book-now" class="goto-booknow mt-auto w-full bg-brand-darkblue hover:bg-brand-lightblue text-white font-bold py-3 px-6 rounded-lg shadow hover-lift text-center cursor-pointer">Book Now</a>
+                </div>
+
+                <!-- Package 4 -->
+                <div data-aos="fade-up" data-aos-delay="400" class="bg-white rounded-2xl shadow-md border border-gray-100 p-8 flex flex-col hover-lift">
+                    <h3 class="text-xl font-extrabold text-brand-darkblue mb-6 border-b-2 border-brand-lightblue pb-3 inline-block self-start">CUSTOM</h3>
+                    <ul class="space-y-4 mb-8 text-gray-600 text-sm flex-grow">
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-lightblue mt-1"></i> Cleaning frequency to your exact needs</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-lightblue mt-1"></i> Suitable for any number of panels</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-lightblue mt-1"></i> Residential & commercial setups</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-lightblue mt-1"></i> Before & after verification videos</li>
+                    </ul>
+                    <a href="#book-now" class="goto-booknow mt-auto w-full bg-brand-darkblue hover:bg-brand-lightblue text-white font-bold py-3 px-6 rounded-lg shadow hover-lift text-center cursor-pointer">Get Quote</a>
+                </div>
+            </div>
+
+            <!-- Additional Info Box -->
+            <div data-aos="fade-up" class="bg-blue-50 border-l-4 border-brand-lightblue rounded-r-xl p-8 shadow-sm flex flex-col sm:flex-row gap-6 items-start sm:items-center">
+                <div class="flex-shrink-0 w-16 h-16 bg-white rounded-full flex items-center justify-center text-brand-lightblue shadow-md">
+                    <i class="fa-solid fa-circle-info text-3xl"></i>
+                </div>
+                <div>
+                    <p class="text-gray-800 mb-2 text-lg">
+                        <span class="font-bold text-brand-darkblue">Additional Service:</span> Roof Water Cleaning is not included in any package. It is available on request for an additional charge.
+                    </p>
+                    <p class="text-gray-800 text-lg">
+                        <span class="font-bold text-brand-darkblue">Pricing Note:</span> All package pricing is calculated based on the total number of solar panels installed.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== 4. REVIEWS PAGE ==================== -->
+    <div id="reviews-page" class="page-container hidden view-transition pb-20">
+        <!-- Hero Section -->
+        <div class="relative w-full h-[40vh] md:h-[50vh] flex items-center justify-center mb-16 mt-20 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1508514177221-188b1c8d40e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Reviews Hero" class="absolute inset-0 w-full h-full object-cover z-0 hero-bg-zoom">
+            <div class="absolute inset-0 bg-brand-darkblue/80 z-10"></div>
+            <div class="relative z-20 text-center px-4 w-full max-w-4xl mx-auto mt-8">
+                <span data-aos="fade-up" class="inline-block py-1 px-3 rounded-full bg-brand-lightblue/20 text-brand-yellow font-semibold text-sm mb-4 border border-brand-yellow/30 uppercase tracking-wider">
+                    Testimonials
+                </span>
+                <h1 data-aos="fade-up" data-aos-delay="100" class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6">What Our Customers Say</h1>
+                <p data-aos="fade-up" data-aos-delay="200" class="text-xl text-gray-200 font-medium max-w-2xl mx-auto">Hear directly from residential and commercial clients across Karachi who trust Ali's Solar Care.</p>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div data-aos="fade-up" data-aos-delay="100" class="bg-white rounded-2xl p-8 shadow-md border border-gray-100 flex flex-col hover-lift">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-brand-lightblue/10 rounded-full flex items-center justify-center text-brand-lightblue text-xl font-bold">MA</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-brand-darkblue">Muhammad Ahmed</h4>
+                            <p class="text-xs text-gray-500 uppercase tracking-wide">Residential Customer, Karachi</p>
+                        </div>
+                    </div>
+                    <div class="flex text-brand-yellow mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-gray-600 italic flex-grow leading-relaxed">"Bohat achi service mili. Panels achi tarah clean kiye aur kaam bhi jaldi complete kar diya. Before aur after video bhi share ki thi."</p>
+                </div>
+
+                <!-- Review 2 -->
+                <div data-aos="fade-up" data-aos-delay="200" class="bg-white rounded-2xl p-8 shadow-md border border-gray-100 flex flex-col hover-lift">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-brand-yellow/20 rounded-full flex items-center justify-center text-brand-yellow text-xl font-bold">AR</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-brand-darkblue">Ahsan Raza</h4>
+                            <p class="text-xs text-gray-500 uppercase tracking-wide">Commercial Customer, Karachi</p>
+                        </div>
+                    </div>
+                    <div class="flex text-brand-yellow mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-gray-600 italic flex-grow leading-relaxed">"The team did a good job cleaning our solar panels. They came on time, worked properly and cleaned everything before leaving. Satisfied with the service."</p>
+                </div>
+
+                <!-- Review 3 -->
+                <div data-aos="fade-up" data-aos-delay="300" class="bg-white rounded-2xl p-8 shadow-md border border-gray-100 flex flex-col hover-lift">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-brand-darkblue/10 rounded-full flex items-center justify-center text-brand-darkblue text-xl font-bold">BK</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-brand-darkblue">Bilal Khan</h4>
+                            <p class="text-xs text-gray-500 uppercase tracking-wide">Residential Customer, Karachi</p>
+                        </div>
+                    </div>
+                    <div class="flex text-brand-yellow mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-gray-600 italic flex-grow leading-relaxed">"Panels kaafi dusty thay aur cleaning ke baad difference clearly nazar aa raha tha. Staff cooperative tha aur kaam bhi theek tarah se kiya."</p>
+                </div>
+
+                <!-- Review 4 -->
+                <div data-aos="fade-up" data-aos-delay="100" class="bg-white rounded-2xl p-8 shadow-md border border-gray-100 flex flex-col hover-lift">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-brand-lightblue/10 rounded-full flex items-center justify-center text-brand-lightblue text-xl font-bold">SA</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-brand-darkblue">Saad Ali</h4>
+                            <p class="text-xs text-gray-500 uppercase tracking-wide">Commercial Customer, Karachi</p>
+                        </div>
+                    </div>
+                    <div class="flex text-brand-yellow mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-gray-600 italic flex-grow leading-relaxed">"We have a commercial solar system and needed proper cleaning. The team handled the panels carefully and completed the work without any issue."</p>
+                </div>
+
+                <!-- Review 5 -->
+                <div data-aos="fade-up" data-aos-delay="200" class="bg-white rounded-2xl p-8 shadow-md border border-gray-100 flex flex-col hover-lift">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-brand-yellow/20 rounded-full flex items-center justify-center text-brand-yellow text-xl font-bold">HS</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-brand-darkblue">Hassan Sheikh</h4>
+                            <p class="text-xs text-gray-500 uppercase tracking-wide">Residential Customer, Karachi</p>
+                        </div>
+                    </div>
+                    <div class="flex text-brand-yellow mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-gray-600 italic flex-grow leading-relaxed">"Service achi thi aur team ne panels properly wash kiye. Roof par bhi unnecessary mess nahi kiya. Overall experience acha raha."</p>
+                </div>
+
+                <!-- Review 6 -->
+                <div data-aos="fade-up" data-aos-delay="300" class="bg-white rounded-2xl p-8 shadow-md border border-gray-100 flex flex-col hover-lift">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-brand-darkblue/10 rounded-full flex items-center justify-center text-brand-darkblue text-xl font-bold">IQ</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-brand-darkblue">Imran Qureshi</h4>
+                            <p class="text-xs text-gray-500 uppercase tracking-wide">Commercial Customer, Karachi</p>
+                        </div>
+                    </div>
+                    <div class="flex text-brand-yellow mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-gray-600 italic flex-grow leading-relaxed">"Good service and professional team. They cleaned the panels properly and finished the job as discussed. We will use their service again."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GLOBAL FOOTER -->
+    <footer class="bg-brand-darkblue text-white pt-16 pb-8 border-t-[6px] border-brand-yellow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
+                <img class="h-16 w-auto bg-white p-2 rounded-lg" src="logo transparent.png" alt="Ali's Solar Care Logo">
+                <div class="text-center md:text-right">
+                    <p class="text-gray-300 mb-2">Maximize Your Solar Efficiency.</p>
+                    <p class="text-brand-yellow font-bold text-xl">+92 322 8132237</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-400 text-sm">
+                    &copy; 2026 Ali's Solar Care. All rights reserved.
+                </p>
+                <div class="flex gap-4 text-sm text-gray-400">
+                    <button id="open-admin-btn" class="hover:text-brand-yellow transition-colors underline border-none bg-transparent cursor-pointer">Admin Dashboard Login</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/923228132237" target="_blank" class="fixed bottom-6 right-6 z-40 bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition-all duration-300 group pulse-occasional" aria-label="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+        <span class="absolute right-20 bg-white text-gray-800 text-sm font-bold py-2 px-4 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+            Chat with us!
+        </span>
+    </a>
+
+    <!-- ADMIN DASHBOARD (Hidden by Default) -->
+    <div id="admin-dashboard" class="hidden min-h-screen bg-gray-100">
+        <header class="bg-brand-darkblue text-white shadow-md">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-shield-halved text-brand-yellow text-xl"></i>
+                    <h1 class="font-bold text-xl">Ali's Solar Care - Admin</h1>
+                </div>
+                <button id="close-admin-btn" class="text-sm bg-white/10 hover:bg-white/20 px-4 py-2 rounded-md transition-colors cursor-pointer">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Back to Website
+                </button>
+            </div>
+        </header>
+
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex justify-between items-end mb-6">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800">Booking Requests</h2>
+                    <p class="text-gray-500 text-sm">Real-time submissions from your website.</p>
+                </div>
+                <div class="text-sm text-gray-500 bg-white px-3 py-1 rounded shadow-sm border">
+                    <span id="connection-status" class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-red-500" id="status-dot"></span> Connecting...
+                    </span>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow overflow-hidden border border-gray-200">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Customer</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Contact</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Service</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Details</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bookings-table-body" class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td colspan="5" class="px-6 py-10 text-center text-gray-500">
+                                    <div class="flex justify-center mb-2"><div class="loader"></div></div>
+                                    Loading bookings...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- CUSTOM MODAL -->
+    <div id="custom-modal" class="fixed inset-0 z-[100] hidden items-center justify-center">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm modal-bg"></div>
+        <div class="relative bg-white rounded-xl shadow-2xl p-8 max-w-sm w-full mx-4 transform scale-95 transition-transform duration-300" id="modal-content">
+            <div class="text-center">
+                <div id="modal-icon" class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100 mb-4">
+                    <i class="fa-solid fa-check text-green-600 text-xl"></i>
+                </div>
+                <h3 id="modal-title" class="text-lg leading-6 font-bold text-gray-900 mb-2">Success</h3>
+                <div class="mt-2">
+                    <p id="modal-message" class="text-sm text-gray-500">Operation completed successfully.</p>
+                </div>
+                <div class="mt-6">
+                    <button id="close-modal-btn" type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-brand-darkblue text-base font-medium text-white hover:bg-blue-900 focus:outline-none sm:text-sm transition-colors cursor-pointer">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AOS JS for Animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script type="module">
+        // Initialize AOS with strict timing & smooth easing
+        AOS.init({
+            duration: 600,
+            easing: 'ease-out',
+            once: true,
+            offset: 80
+        });
+
+        // Statistics Counter Logic
+        const counters = document.querySelectorAll('.stat-counter');
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = +counter.getAttribute('data-target');
+                    let startTime = null;
+                    const duration = 1500;
+
+                    const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
+
+                    const updateCount = (timestamp) => {
+                        if (!startTime) startTime = timestamp;
+                        const progress = Math.min((timestamp - startTime) / duration, 1);
+                        const currentCount = Math.floor(easeOutQuart(progress) * target);
+                        
+                        counter.innerText = currentCount;
+
+                        if (progress < 1) {
+                            requestAnimationFrame(updateCount);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    requestAnimationFrame(updateCount);
+                    observer.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => {
+            counterObserver.observe(counter);
+        });
+
+        // Firebase Modular SDK Imports
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
+            apiKey: "mock-key", projectId: "mock-project" 
+        };
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'alis-solar-care-default';
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        let currentUser = null;
+        let unsubscribeBookings = null;
+
+        const modal = document.getElementById('custom-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalMessage = document.getElementById('modal-message');
+        const modalIcon = document.getElementById('modal-icon');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const formLoader = document.getElementById('form-loader');
+        
+        const adminDashboard = document.getElementById('admin-dashboard');
+        const openAdminBtn = document.getElementById('open-admin-btn');
+        const closeAdminBtn = document.getElementById('close-admin-btn');
+        const statusDot = document.getElementById('status-dot');
+        const connectionStatus = document.getElementById('connection-status');
+
+        const showModal = (title, message, isError = false) => {
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+            
+            if (isError) {
+                modalIcon.className = "mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100 mb-4";
+                modalIcon.innerHTML = '<i class="fa-solid fa-xmark text-red-600 text-xl"></i>';
+            } else {
+                modalIcon.className = "mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100 mb-4";
+                modalIcon.innerHTML = '<i class="fa-solid fa-check text-green-600 text-xl"></i>';
+            }
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            setTimeout(() => {
+                document.getElementById('modal-content').classList.remove('scale-95');
+                document.getElementById('modal-content').classList.add('scale-100');
+            }, 10);
+        };
+
+        const hideModal = () => {
+            document.getElementById('modal-content').classList.remove('scale-100');
+            document.getElementById('modal-content').classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 300);
+        };
+
+        closeModalBtn.addEventListener('click', hideModal);
+
+        const initAuth = async () => {
+            try {
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+            } catch (error) {
+                console.error("Firebase Auth Error:", error);
+                statusDot.classList.replace('bg-green-500', 'bg-red-500');
+                connectionStatus.innerHTML = `<span class="w-2 h-2 rounded-full bg-red-500" id="status-dot"></span> Auth Failed`;
+            }
+        };
+
+        initAuth();
+
+        onAuthStateChanged(auth, (user) => {
+            currentUser = user;
+            if (user) {
+                statusDot.classList.replace('bg-red-500', 'bg-green-500');
+                connectionStatus.innerHTML = `<span class="w-2 h-2 rounded-full bg-green-500" id="status-dot"></span> Live Connected`;
+                if (!adminDashboard.classList.contains('hidden')) {
+                    loadAdminData();
+                }
+            } else {
+                statusDot.classList.replace('bg-green-500', 'bg-red-500');
+            }
+        });
+
+        // Handle Home Page Contact Form Submission
+        document.getElementById('bookingForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!currentUser) {
+                showModal("Connection Error", "Please wait a moment while we connect securely to our servers, then try again.", true);
+                return;
+            }
+            formLoader.classList.remove('hidden');
+
+            const newBooking = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value || 'N/A',
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value || 'No additional details provided.',
+                createdAt: new Date().toISOString(),
+                status: 'new'
+            };
+
+            try {
+                const bookingsRef = collection(db, 'artifacts', appId, 'public', 'data', 'bookings');
+                await addDoc(bookingsRef, newBooking);
+                formLoader.classList.add('hidden');
+                e.target.reset();
+                showModal("Booking Received!", "Thank you for choosing Ali's Solar Care. Our team will contact you shortly to confirm your schedule.");
+            } catch (error) {
+                console.error("Error adding document: ", error);
+                formLoader.classList.add('hidden');
+                showModal("Submission Failed", "There was an issue sending your request. Please try again or contact us via WhatsApp.", true);
+            }
+        });
+
+        const loadAdminData = () => {
+            if (!currentUser) return;
+            const tbody = document.getElementById('bookings-table-body');
+            const bookingsRef = collection(db, 'artifacts', appId, 'public', 'data', 'bookings');
+
+            unsubscribeBookings = onSnapshot(bookingsRef, (snapshot) => {
+                const bookings = [];
+                snapshot.forEach((doc) => {
+                    bookings.push({ id: doc.id, ...doc.data() });
+                });
+
+                bookings.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+                if (bookings.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="5" class="px-6 py-10 text-center text-gray-500">No booking requests found.</td></tr>`;
+                    return;
+                }
+
+                tbody.innerHTML = '';
+                bookings.forEach(booking => {
+                    const date = new Date(booking.createdAt).toLocaleString('en-PK', {
+                        year: 'numeric', month: 'short', day: 'numeric',
+                        hour: '2-digit', minute:'2-digit'
+                    });
+
+                    const tr = document.createElement('tr');
+                    tr.className = "hover:bg-gray-50 transition-colors";
+                    tr.innerHTML = `
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${date}</td>
+                        <td class="px-6 py-4 whitespace-nowrap"><div class="text-sm font-medium text-brand-darkblue">${booking.name}</div></td>
+                        <td class="px-6 py-4 whitespace-nowrap"><div class="text-sm text-gray-900"><i class="fa-solid fa-phone text-xs text-gray-400 mr-1"></i> ${booking.phone}</div></td>
+                        <td class="px-6 py-4 whitespace-nowrap"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-brand-darkblue">${booking.service}</span></td>
+                        <td class="px-6 py-4 text-sm text-gray-500 max-w-xs truncate" title="${booking.message}">${booking.message}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            }, (error) => {
+                console.error("Error fetching bookings:", error);
+                tbody.innerHTML = `<tr><td colspan="5" class="px-6 py-10 text-center text-red-500">Error loading data. Check console.</td></tr>`;
+            });
+        };
+
+        openAdminBtn.addEventListener('click', () => {
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('services-page').style.display = 'none';
+            document.getElementById('packages-page').style.display = 'none';
+            document.getElementById('reviews-page').style.display = 'none';
+            document.querySelector('header').style.display = 'none';
+            adminDashboard.classList.remove('hidden');
+            window.scrollTo(0, 0);
+            if (currentUser) loadAdminData();
+        });
+
+        closeAdminBtn.addEventListener('click', () => {
+            adminDashboard.classList.add('hidden');
+            document.querySelector('header').style.display = 'block';
+            showPage('home-page');
+            if (unsubscribeBookings) {
+                unsubscribeBookings();
+                unsubscribeBookings = null;
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Sticky Header Hide on Scroll Down / Show on Scroll Up
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                navbar.style.transform = 'translateY(-100%)';
+                mobileMenu.classList.add('hidden');
+            } else {
+                navbar.style.transform = 'translateY(0)';
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }, { passive: true });
+
+        // SPA Navigation Logic
+        const showPage = (pageId) => {
+            const pages = document.querySelectorAll('.page-container');
+            pages.forEach(p => {
+                p.classList.add('hidden');
+                p.style.display = 'none';
+            });
+
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.style.display = 'block';
+                targetPage.classList.remove('hidden');
+                targetPage.classList.remove('view-transition');
+                void targetPage.offsetWidth;
+                targetPage.classList.add('view-transition');
+                setTimeout(() => AOS.refresh(), 100);
+            }
+            mobileMenu.classList.add('hidden');
+            window.scrollTo(0, 0);
+        };
+
+        // Navigation Item Click Listeners
+        document.querySelectorAll('.nav-link-home').forEach(el => {
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                showPage('home-page');
+            });
+        });
+
+        document.querySelectorAll('.nav-link-page, .mobile-nav-link').forEach(el => {
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = el.getAttribute('data-target');
+                if (targetId) {
+                    showPage(targetId);
+                }
+            });
+        });
+
+        // Anchor navigation handlers for Book Now and About Us
+        const handleAnchorNav = (targetId) => {
+            // Ensure home page is active first if currently on another page
+            const homePage = document.getElementById('home-page');
+            if (homePage.classList.contains('hidden') || homePage.style.display === 'none') {
+                showPage('home-page');
+            }
+            setTimeout(() => {
+                const el = document.getElementById(targetId);
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 50);
+        };
+
+        document.getElementById('nav-book-now').addEventListener('click', (e) => {
+            e.preventDefault();
+            handleAnchorNav('book-now');
+        });
+
+        document.getElementById('nav-about-us').addEventListener('click', (e) => {
+            e.preventDefault();
+            handleAnchorNav('about-us');
+        });
+
+        document.querySelectorAll('.hero-cta-book, .goto-booknow').forEach(el => {
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                handleAnchorNav('book-now');
+            });
+        });
+
+        document.querySelectorAll('.mobile-nav-link-anchor').forEach(el => {
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                const href = el.getAttribute('href');
+                if (href === '#book-now') {
+                    handleAnchorNav('book-now');
+                } else if (href === '#about-us') {
+                    handleAnchorNav('about-us');
+                }
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Initial setup
+        showPage('home-page');
+    </script>
+</body>
+</html>
